@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from todos.views import home #importa a função home, que está dentro da página views, dentro da pasta(pacote)
+from todos.views import todo_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home) #na rota principal do site executa a view(função) home
+    path("", todo_list)
 ]
+    
