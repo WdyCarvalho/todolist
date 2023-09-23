@@ -24,7 +24,7 @@
     <main class = container>
         <h1>Lista de Tarefas</h1>
        
-        {% if todos %}            
+        {% if todo_list %}  <!--O todo_list é padrão do python para TodoListView-->          
             <table class="table">
                 <thead>
                     <tr>
@@ -38,7 +38,7 @@
                 </thead>
             
                 <tbody>
-                    {% for todo in todos %}
+                    {% for todo in todo_list %}
                         <tr>
                             <th scope="row">{{todo.pk}}</th>
                             <td>{{todo.titulo}}</td>
