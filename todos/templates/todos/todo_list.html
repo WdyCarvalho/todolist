@@ -29,8 +29,8 @@
                             <td>{{todo.data_entrega_tarefa}}</td>
                             <td style="color:red">{{todo.data_finalizacao_tarefa|default:"-"}}</td>
                             <td>
-                                <a href = "{% url 'todo_terminar' pk=todo.pk %}" class="btn btn-primary btn-sm">Concluir</a>
-                                <a href = "{% url 'todo_editar' pk=todo.pk %}" class="btn btn-secondary btn-sm">Editar</a><!--pk é a variável que abrange qualquer id da tabela-->
+                                <a href = "{% url 'todo_terminar' pk=todo.pk %}" class="btn btn-primary btn-sm {% if todo.data_finalizacao_tarefa %}disabled{% endif %}">Concluir</a>
+                                <a href = "{% url 'todo_editar' pk=todo.pk %}" class="btn btn-secondary btn-sm {% if todo.data_finalizacao_tarefa %}disabled{% endif %}">Editar</a><!--pk é a variável que abrange qualquer id da tabela-->
                                 <a href = "{% url 'todo_excluir' pk=todo.pk %}" class="btn btn-danger btn-sm">Excluir</a>
                             </td>
                         </tr>

@@ -14,3 +14,7 @@ class Todo(models.Model): # models.Model indica de onde essa classe herdou suas 
     data_entrega_tarefa = models.DateField(null = False, blank = False)
     data_finalizacao_tarefa = models.DateField(null = True)
 
+    #coloca as tarefas em ordem de acordo com a data de entrega
+    class Meta:
+        ordering = ["data_entrega_tarefa"]
+
