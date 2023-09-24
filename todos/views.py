@@ -1,5 +1,3 @@
-from datetime import date
-
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, View #Essas importações permitem listar, criar(cadastrar), alterar e excluir tarefas
 from django.urls import reverse_lazy #recebe os nomes das rotas
 from django.shortcuts import get_object_or_404, redirect
@@ -26,7 +24,6 @@ class TodoDeleteView(DeleteView):
 class TodoCompleteView(View):
     def get(self, request, pk):
         todo = get_object_or_404(Todo, pk=pk)
-        todo.data_finalizacao_tarefa = date.today()
-        todo.save()
+        todo.marcar_como_completo() #este método está na página models
         return redirect("todo_list")
     

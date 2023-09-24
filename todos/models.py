@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 # Create your models here.
 
@@ -18,3 +19,7 @@ class Todo(models.Model): # models.Model indica de onde essa classe herdou suas 
     class Meta:
         ordering = ["data_entrega_tarefa"]
 
+    def marcar_como_completo(self):
+        if not self.data_finalizacao_tarefa:
+            self.data_finalizacao_tarefa = date.today()
+            self.save()
