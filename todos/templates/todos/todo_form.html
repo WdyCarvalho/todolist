@@ -1,18 +1,27 @@
 {%extends 'base.html'%}
 {%load crispy_forms_tags%}
 
-{%block 'page_title'%}
-  Cadastro de Tarefas
-{%endblock 'page_title'%}
+{%block page_title%}
+  {% if  todo.pk %}
+    Editar Tarefa
+  {% else %}
+    Nova de Tarefa
+  {% endif %}
+{%endblock page_title%}
 
-{%block 'content'%}
+{%block content%}
+  {% if  todo.pk %}
+  <h1>Editar Tarefa</h1>
+{% else %}
+  <h1>Nova de Tarefa</h1>
+{% endif %}
         
-        <h1>Nova de Tarefa</h1>
+        
         <form method="POST">
             
             {% csrf_token %} <!--Um padrão de segurança do python-->
             {{form|crispy}}
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary" >Salvar</button>
             
         </form>
-{%endblock 'content'%}
+{%endblock content%}

@@ -1,9 +1,10 @@
 {%extends 'base.html'%}
-{%block 'page_title'%}
-    Lista de Tarefas
-{%endblock 'page_title'%}
 
-{%block 'content'%}
+{%block page_title%}
+    Lista de Tarefas
+{%endblock page_title%}
+
+{% block content %}
         <h1>Lista de Tarefas</h1>
        
         {% if todo_list %}  <!--O todo_list é padrão do python para TodoListView-->          
@@ -40,4 +41,4 @@
         {% endif %}
 
         <a href = "{% url 'todo_create' %}", class = "btn btn-primary">Nova Tarefa</a>
-    {%endblock 'content'%}
+    {% endblock content %}
